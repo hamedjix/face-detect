@@ -4,7 +4,7 @@ import './Navigation.scss';
 const Navigation = () => {
   return (
     <nav className='Navigation'>
-      <p>Sign Out</p>
+      <a href='https://google.com'>Sign Out</a>
     </nav>
   );
 };
