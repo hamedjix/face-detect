@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import Particles from 'react-particles-js';
 import particlesConfig from './data/particlesConfig.js';
 import Clarifai from 'clarifai';
@@ -12,70 +12,38 @@ const app = new Clarifai.App({
   apiKey: '0732bbbb126f4b339baa83a24f2e9347',
 });
 //Main Component
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      input: '',
-      imgUrl: '',
-      colors: [],
-      coordinates: {},
-    };
-  }
+const App = () => {
+  //States
+  const [imgUrl, setImgUrl] = useState('');
+  const [coordinates, setCoordinates] = useState({});
 
   //Input Change Handler
-  onInputChange = (event) => {
-    this.setState({ imgUrl: `${event.target.value}` });
+  const onInputChange = (e) => {
+    setImgUrl(`${e.target.value}`);
   };
   //On Submit Handler - Face Detection
-  onSubmit = () => {
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.imgUrl).then(
+  const onSubmit = () => {
+    app.models.predict(Clarifai.FACE_DETECT_MODEL, imgUrl).then(
       (response) => {
         const coordinates =
           response.outputs[0].data.regions[0].region_info.bounding_box;
-        this.setState({ coordinates: coordinates });
-        console.log(coordinates);
+        setCoordinates(coordinates);
       },
-      (err) => {
-        console.log(err);
-      }
+      (err) => console.log(err)
     );
   };
 
-  //Color Detect
-  // onSubmit = () => {
-  //   app.models.predict(Clarifai.COLOR_MODEL, this.state.imgUrl).then(
-  //     (response) => {
-  //       const colorCode = response.outputs[0].data.colors.map(
-  //         (color) => color.raw_hex
-  //       );
-  //       this.setState({ colors: colorCode });
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // };
-
   //Rendering
-  render() {
-    return (
-      <div className='App'>
-        <Particles className='particles' params={particlesConfig} />
-        <Navigation />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-        />
-        <FaceDetection
-          coordinates={this.state.coordinates}
-          colors={this.state.colors}
-          imgUrl={this.state.imgUrl}
-        />
-      </div>
-    );
-  }
-}
+
+  return (
+    <div className='App'>
+      <Particles className='particles' params={particlesConfig} />
+      <Navigation />
+      <Rank />
+      <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
+      <FaceDetection coordinates={coordinates} imgUrl={imgUrl} />
+    </div>
+  );
+};
 
 export default App;

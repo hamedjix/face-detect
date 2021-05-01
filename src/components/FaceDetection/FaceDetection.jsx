@@ -5,6 +5,8 @@ const FaceDetection = ({ colors, imgUrl, coordinates }) => {
   const right = coordinates.right_col * 100;
   const left = coordinates.left_col * 100;
   const bottom = coordinates.bottom_row * 100;
+  const width = right - left;
+  const height = bottom - top;
 
   return (
     imgUrl && (
@@ -15,8 +17,8 @@ const FaceDetection = ({ colors, imgUrl, coordinates }) => {
             background: 'rgba(0 , 0 , 0 , 0.2)',
             border: '2px solid black',
             position: 'absolute',
-            width: `${right - left}%`,
-            height: `${bottom - top}%`,
+            width: `${width}%`,
+            height: `${height}%`,
             top: `${top}%`,
             left: `${left}%`,
             bottom: `${bottom}%`,
