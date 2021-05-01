@@ -3,7 +3,7 @@ import './Rank.scss';
 const Rank = () => {
   return (
     <div className='Rank'>
-      <p>Your Rank is #5</p>
+      <p></p>
     </div>
   );
 };

@@ -2,16 +2,16 @@ import { Component } from 'react';
 import Particles from 'react-particles-js';
 import particlesConfig from './data/particlesConfig.js';
 import Clarifai from 'clarifai';
-//Import Components
+//Import Needed Components
 import Navigation from './components/Navigation/Navigation';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import FaceDetection from './components/FaceDetection/FaceDetection.jsx';
-
+//Clarifai
 const app = new Clarifai.App({
   apiKey: '0732bbbb126f4b339baa83a24f2e9347',
 });
-
+//Main Component
 class App extends Component {
   constructor() {
     super();
@@ -19,9 +19,10 @@ class App extends Component {
       input: '',
       imgUrl: '',
       colors: [],
-      coordinates: [],
+      coordinates: {},
     };
   }
+
   //Input Change Handler
   onInputChange = (event) => {
     this.setState({ imgUrl: `${event.target.value}` });
@@ -33,6 +34,7 @@ class App extends Component {
         const coordinates =
           response.outputs[0].data.regions[0].region_info.bounding_box;
         this.setState({ coordinates: coordinates });
+        console.log(coordinates);
       },
       (err) => {
         console.log(err);
