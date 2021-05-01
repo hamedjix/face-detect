@@ -1,4 +1,3 @@
-import React from 'react';
 import './Rank.scss';
 
 const Rank = () => {

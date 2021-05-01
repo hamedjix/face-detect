@@ -1,18 +1,13 @@
 .Tilt {
   margin: 0 2rem;
   box-shadow: 0.1rem 0.2rem 1rem;
-  background: rgba(255, 135, 254, 1);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 135, 254, 1) 0%,
-    rgba(45, 194, 195, 1) 100%
-  );
+  background: #76c893;
+  background: linear-gradient(90deg, #76c893 0%, #168aad 100%);
   .Tilt-inner {
     text-align: center;
     vertical-align: middle;
     padding: 1rem;
     img {
-      display: block;
       margin-left: auto;
       margin-right: auto;
       width: 100%;

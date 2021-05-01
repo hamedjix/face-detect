@@ -1,6 +1,7 @@
 .Navigation {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 2em;
   a {
     font-size: 2rem;
     font-weight: 700;

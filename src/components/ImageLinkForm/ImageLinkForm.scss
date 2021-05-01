@@ -1,42 +1,51 @@
 .ImageLinkForm {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding: 0 2em;
   p {
     font-size: 2rem;
-    font-weight: 500;
   }
-  input {
-    padding: 1rem;
-    width: 700px;
-    max-width: 80%;
-    border: none;
-    box-shadow: 0.01rem 0rem 1rem;
-    border-radius: 200px;
-    font-size: 1.5rem;
-    &:focus {
+  .inputContainer {
+    display: flex;
+    margin: 0 auto;
+    max-width: 980px;
+    border-radius: 20px;
+    padding: 4em;
+    background-color: #d9ed92;
+    opacity: 0.6;
+    background-size: 26px 26px;
+    background-image: repeating-linear-gradient(
+      to right,
+      #184e77,
+      #184e77 1.3px,
+      #d9ed92 1.3px,
+      #d9ed92
+    );
+    input,
+    button {
+      padding: 0.7em;
+      font-size: 2rem;
       outline: none;
+      border: none;
     }
-  }
-  button {
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    border: none;
-    box-shadow: 0.01rem 0rem 1rem;
-    border-radius: 200px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    transition: 0.2s ease all;
-    cursor: pointer;
-    &:focus {
-      outline: none;
+    input {
+      border: 1px solid #184e77;
+      width: 100%;
     }
-    &:hover {
-      transform: scale(1.1);
-    }
-    &:active {
-      transform: scale(1);
+    button {
+      padding: 0.7em 2em;
+      color: white;
+      background: #184e77;
+      border: 1px solid #184e77;
+      border-left: none;
+      cursor: pointer;
+      &:hover {
+        color: #184e77;
+        background: #b5e48c;
+      }
+      &:active {
+        color: white;
+        background: #184e77;
+      }
     }
   }
 }

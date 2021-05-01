@@ -9,14 +9,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgb(45, 194, 195);
-  background: linear-gradient(
-    90deg,
-    rgba(45, 194, 195, 1) 0%,
-    rgba(255, 135, 254, 1) 100%
-  );
+  background: linear-gradient(90deg, #168aad 0%, #76c893 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.particles {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
